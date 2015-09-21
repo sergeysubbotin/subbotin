@@ -6,5 +6,10 @@
 </head>
 <body>
 	Hello
+	<?php
+	echo "работает php"
+
+
+	?>
 </body>
 </html>
