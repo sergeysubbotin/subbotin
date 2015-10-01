@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	Hello
-	<?php
-	echo "работает php"
-
-
-	?>
-</body>
-</html>
+<?php
+/**
+*	точка входа в программу
+*	подгружение model,controller.
+*/
+include_once 'model/model.php';
+include_once 'Controller/controller.php';
+?>
+	
+	
