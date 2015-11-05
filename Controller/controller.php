@@ -31,7 +31,11 @@ return $html;
 
 function admin_action()
 {
-	require "view/template/admin.php";
+	$posts=get_all_posts();
+	$html=render_template('view/template/admin.php', array('posts'=>$posts));
+return $html;
+	//require "view/template/admin.php";
+
 }
 
 function show_action($id)
@@ -46,7 +50,7 @@ function add_action()
 {
 	add_post();
 	//$post=get_post($id);
-	require "view/template/list.php";
+	//require "view/template/list.php";
 }
 
 function autor_action()
@@ -56,6 +60,13 @@ function autor_action()
 function about_action()
 {
 	require "view/template/about.php";
+}
+function edit_action($id)
+{
+	$post = get_post($id);
+	$html = render_template('view/template/edit.php', array('post'=>$post));
+	return $html;
+	//require "view/template/admin.php";
 }
 
 ?>

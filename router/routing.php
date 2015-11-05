@@ -29,6 +29,14 @@ if($uri=="/2ktvrp/subbotin/" OR $uri=="/2ktvrp/subbotin/index.php")
 {
 	$response = show_action($_REQUEST['id']);
 }
+	elseif ($uri=="/2ktvrp/subbotin/index.php/edit")
+{
+	$response = edit_action($_REQUEST['id']);
+}
+elseif ($uri=="/2ktvrp/subbotin/index.php/edit_submit")
+{
+	$response = admin_action();
+}
 
 
 	

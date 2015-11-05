@@ -43,3 +43,24 @@ function get_post($id)
 	
 
 }
+function add_post()
+{
+	$autor=$_POST['add_autor'];
+	$date=date("Y-m-d H:i:s");
+	$new_content=$_POST['add_content'];
+	$title=$_POST['add_title'];
+	$link=open_database_connection();
+	$sql="INSERT INTO `post` (`id`, `autor`, `date`, `title`, `content`) VALUES (NULL, '$autor', '$date', '$title', '$new_content');";
+	$add=mysql_query($sql,$link);
+	close_database_connection($link);
+}
+function edit_data($id)
+{
+	$autor=$_POST['autor'];	
+	$new_content=$_POST['content'];
+	$title=$_POST['title'];
+	$link=open_database_connection();
+	$sql="UPDATE `post` SET `autor` = '$autor', `title` = '$title', `content` = '$content' WHERE `id` = $id;";
+	$add=mysql_query($sql,$link);
+	close_database_connection($link);
+}
