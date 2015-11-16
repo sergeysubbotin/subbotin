@@ -7,6 +7,7 @@ ini_set('display_errors', 1);
 */
 
 include_once 'model/model.php';
+include_once 'model/PostsModel.php';
 include_once 'Controller/controller.php';
 include_once 'router/routing.php';
 echo $response;

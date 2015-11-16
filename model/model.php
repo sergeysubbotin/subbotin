@@ -40,9 +40,8 @@ function get_post($id)
 	$post = mysql_fetch_assoc($result);
 	close_database_connection($link);	
 	return $post;
-	
-
 }
+
 function add_post()
 {
 	$autor=$_POST['add_autor'];
@@ -53,6 +52,7 @@ function add_post()
 	$sql="INSERT INTO `post` (`id`, `autor`, `date`, `title`, `content`) VALUES (NULL, '$autor', '$date', '$title', '$new_content');";
 	$add=mysql_query($sql,$link);
 	close_database_connection($link);
+	header('location:admin');
 }
 function edit_data($id)
 {
@@ -63,4 +63,5 @@ function edit_data($id)
 	$sql="UPDATE `post` SET `autor` = '$autor', `title` = '$title', `content` = '$content' WHERE `id` = $id;";
 	$add=mysql_query($sql,$link);
 	close_database_connection($link);
+	header('location:admin');
 }

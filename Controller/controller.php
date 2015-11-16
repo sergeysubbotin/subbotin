@@ -23,7 +23,8 @@ function render_template($path, array $arg)
 
 function list_action()
 {
-$posts=get_all_posts();
+$postsModel=new PostsModel();
+$posts=$postsModel->get_all_posts();
 $html=render_template('view/template/list.php', array('posts'=>$posts));
 return $html;
 //require "view/template/list.php";
@@ -33,17 +34,18 @@ function admin_action()
 {
 	$posts=get_all_posts();
 	$html=render_template('view/template/admin.php', array('posts'=>$posts));
-return $html;
+	return $html;
 	//require "view/template/admin.php";
 
 }
 
 function show_action($id)
 {
-	$post = get_post($id);
+	$postsModel = new PostsModel();
+	$post=$postsModel->get_post_by_id($id);
 	$html = render_template('view/template/show.php', array('post'=>$post));
 	return $html;
-	//require "view/template/admin.php";
+	//require "view/template/show.php";
 }
 
 function add_action()
