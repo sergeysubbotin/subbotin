@@ -57,11 +57,11 @@ function add_post()
 function edit_data($id)
 {
 	$autor=$_POST['autor'];	
-	$new_content=$_POST['content'];
+	$content=$_POST['content'];
 	$title=$_POST['title'];
 	$link=open_database_connection();
-	$sql="UPDATE `post` SET `autor` = '$autor', `title` = '$title', `content` = '$content' WHERE `id` = $id;";
-	$add=mysql_query($sql,$link);
+	$sql="UPDATE `post` SET `autor` = '$autor', `title` = '$title', `content` = '$content' WHERE `id` = '$id';";
+	$edit=mysql_query($sql,$link);
 	close_database_connection($link);
 	header('location:admin');
 }

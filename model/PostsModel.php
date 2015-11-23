@@ -46,7 +46,21 @@ public function get_post_by_id($id)
 	$post = $stmt->fetch();
 	//close_database_connection($link);	
 	var_dump($post);
-	return $post;
+	return $post;	
+}
+
+public function add_post()
+{
+	$autor=$_POST['add_autor'];
+	$date=date("Y-m-d H:i:s");
+	$new_content=$_POST['add_content'];
+	$title=$_POST['add_title'];
+	//$link=open_database_connection();
+	$sql="INSERT INTO `post` (`id`, `autor`, `date`, `title`, `content`) VALUES (NULL, '$autor', '$date', '$title', '$new_content');";
+	//$add=mysql_query($sql,$link);
+	//close_database_connection($link);
+	$stmt=$this->dbh->prepare($sql); 
+	header('location:admin');
 }
 
 }

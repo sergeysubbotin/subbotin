@@ -37,6 +37,7 @@ function admin_action()
 	return $html;
 	//require "view/template/admin.php";
 
+
 }
 
 function show_action($id)
@@ -65,7 +66,9 @@ function about_action()
 }
 function edit_action($id)
 {
-	$post = get_post($id);
+	//$post = get_post($id);
+	$postsModel = new PostsModel();
+	$post=$postsModel->get_post_by_id($id);
 	$html = render_template('view/template/edit.php', array('post'=>$post));
 	return $html;
 	//require "view/template/admin.php";

@@ -9,7 +9,7 @@ if ($_REQUEST['edit'])
 
 <?php $content = ob_get_clean();?>
 <?php include "view/template/layout.php";?>
-<form action="edit_submit" method="POST" accept-charset="utf-8">
+<form action="" method="POST" accept-charset="utf-8">
 	
 
 <table>
