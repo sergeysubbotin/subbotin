@@ -10,6 +10,7 @@ include_once 'model/model.php';
 include_once 'model/PostsModel.php';
 include_once 'Controller/controller.php';
 include_once 'router/routing.php';
+include_once 'Controller/userscontroller.php';
 echo $response;
 ?>
 	

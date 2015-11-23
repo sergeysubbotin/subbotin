@@ -1,13 +1,8 @@
 <?php ob_start() ?>
-<?php 
-		if (isset($_POST['add']))
-		 {
-			$add=add_action();
-		}
-?>
+
 
 <h2>администрирование странички</h2>
-<form action="" method="POST" name="add_data">
+<form action="/2ktvrp/subbotin/index.php/add" method="POST" name="add_data">
 	
 
 		<table>
@@ -39,6 +34,9 @@
 					</a>
 					<a href="edit?id=<?php echo $post['id'];?>">
 					редактировать
+					</a>
+					<a href="delete?id=<?php echo $post['id'];?>">
+					удалить
 					</a>
 				</li>
 			<?php endforeach; ?> 	

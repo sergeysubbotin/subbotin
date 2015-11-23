@@ -38,6 +38,21 @@ elseif ($uri=="/2ktvrp/subbotin/index.php/edit_submit")
 	$response = admin_action();
 }
 
+elseif ($uri=="/2ktvrp/subbotin/index.php/delete")
+{
+	$response = delete_action($_REQUEST['id']);
+}
+
+elseif ($uri=="/2ktvrp/subbotin/index.php/add")
+{
+	$response = add_action();
+}
+
+elseif ($uri=="/2ktvrp/subbotin/index.php/users")
+{
+	$response = users_action();
+}
+
 
 	
 	

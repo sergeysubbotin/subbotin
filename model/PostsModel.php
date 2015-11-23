@@ -49,18 +49,22 @@ public function get_post_by_id($id)
 	return $post;	
 }
 
-public function add_post()
+public function add_post($autor,$date,$title,$new_content)
 {
-	$autor=$_POST['add_autor'];
-	$date=date("Y-m-d H:i:s");
-	$new_content=$_POST['add_content'];
-	$title=$_POST['add_title'];
-	//$link=open_database_connection();
-	$sql="INSERT INTO `post` (`id`, `autor`, `date`, `title`, `content`) VALUES (NULL, '$autor', '$date', '$title', '$new_content');";
+
+	$sql="INSERT INTO `post` (`autor`, `date`, `title`, `content`) VALUES (?, ?, ?, ?)";
 	//$add=mysql_query($sql,$link);
 	//close_database_connection($link);
 	$stmt=$this->dbh->prepare($sql); 
-	header('location:admin');
+	$stmt->execute([$autor,$date,$title,$new_content]);
+	//header('location:admin');
+}
+public function delete_post($id)
+{
+$sql="DELETE FROM `post` where `id`=?" ;
+$stmt=$this->dbh->prepare($sql); 
+$stmt->execute([$id]);
+
 }
 
 }

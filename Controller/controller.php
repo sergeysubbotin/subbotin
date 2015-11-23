@@ -32,7 +32,9 @@ return $html;
 
 function admin_action()
 {
-	$posts=get_all_posts();
+	$postsModel=new PostsModel();
+	$posts=$postsModel->get_all_posts();
+	//$posts=get_all_posts();
 	$html=render_template('view/template/admin.php', array('posts'=>$posts));
 	return $html;
 	//require "view/template/admin.php";
@@ -51,7 +53,16 @@ function show_action($id)
 
 function add_action()
 {
-	add_post();
+	$autor=$_POST['add_autor'];
+	$date=date("Y-m-d H:i:s");
+	$new_content=$_POST['add_content'];
+	$title=$_POST['add_title'];
+	$postsModel = new PostsModel();
+	$postsModel->add_post($autor,$date,$title,$new_content);
+	$posts=$postsModel->get_all_posts();	
+	$html=render_template('view/template/admin.php', array('posts'=>$posts));
+	return $html;
+	//add_post();
 	//$post=get_post($id);
 	//require "view/template/list.php";
 }
@@ -74,4 +85,12 @@ function edit_action($id)
 	//require "view/template/admin.php";
 }
 
+function delete_action($id)
+{
+	$postsModel = new PostsModel();
+	$postsModel->delete_post($id);
+	$posts=$postsModel->get_all_posts();
+	$html = render_template('view/template/admin.php', array('posts'=>$posts));
+	return $html;
+}
 ?>
